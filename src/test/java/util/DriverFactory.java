@@ -28,13 +28,6 @@ public class DriverFactory {
         return webdriver;
     }
 
-    public void quitDriver() {
-        if (webdriver != null) {
-            webdriver.quit();
-            webdriver = null;
-        }
-    }
-
     private DriverType determineEffectiveDriverType() {
         try {
             driverType = DriverType.valueOf(browser);

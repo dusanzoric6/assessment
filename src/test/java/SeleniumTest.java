@@ -1,20 +1,16 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import util.DriverFactory;
+import util.Waits;
 
 public class SeleniumTest {
 
     WebDriver driver;
 
-//
-
-
     @Test
-    public void googleCheeseExample() throws Exception {
+    public void testExpedia() throws Exception {
         driver = new DriverFactory().getDriver();
 
 //    Go to site http://www.expedia.com
@@ -28,7 +24,7 @@ public class SeleniumTest {
         WebElement flyingFromInput = driver.findElement(By.id("flight-origin-hp-flight"));
         flyingFromInput.sendKeys(Keys.CONTROL + "a");
         flyingFromInput.sendKeys("London");
-        waitForElementToBeVisible(driver, By.id("typeaheadDataPlain"), 5);
+        Waits.waitForElementToBeVisible(driver, By.linkText("(LHR) Heathrow"), 5);
 
 //    Select Heathrow in popup
         driver.findElement(By.linkText("(LHR) Heathrow")).sendKeys(Keys.ENTER);
@@ -37,8 +33,7 @@ public class SeleniumTest {
         WebElement flyingToInput = driver.findElement(By.id("flight-destination-hp-flight"));
         flyingToInput.sendKeys(Keys.CONTROL + "a");
         flyingToInput.sendKeys("Dublin");
-        waitForElementToBeVisible(driver, By.id("typeaheadDataPlain"), 5);
-
+        Waits.waitForElementToBeVisible(driver, By.linkText("Dublin, Ireland\n(DUB)"), 5);
 
 //    Select "Dublin Airport (DUB), Ireland" in popup
         driver.findElement(By.linkText("Dublin, Ireland\n(DUB)")).sendKeys(Keys.ENTER);
@@ -61,12 +56,12 @@ public class SeleniumTest {
         driver.findElement(By.xpath("//*[@id=\"gcw-flights-form-hp-flight\"]/div[*]/label/button")).sendKeys(Keys.ENTER);
 
 //    Wait for all flights to be loaded. Find first row excluding the promotional row for “Flight + Hotel”
-        waitForElementToBeClickable(driver, By.cssSelector("button[class='btn-secondary btn-action t-select-btn']"), 20);
+        Waits.waitForElementToBeClickable(driver, By.cssSelector("button[class='btn-secondary btn-action t-select-btn']"), 20);
 
-//    Assert Positive scenario that the price in first row is $94 (or any other price at your time)
+//    Assert Positive scenario that the price in first row is $95 (or any other price at your time)
         String price = driver.findElement(By.xpath("//*[@id='flightModuleList']/li[1]"))
                 .findElement(By.xpath("//*[contains(@data-test-id, 'listing-price-dollars')]")).getText();
-        Assert.assertEquals(price, "$94");
+        Assert.assertEquals(price, "$95");
 
 //     Assert Negative scenario that the price in first row is not $22.33
         Assert.assertNotEquals(price, "$22");
@@ -83,25 +78,11 @@ public class SeleniumTest {
     }
 
     @AfterTest
-    public void closeDriverObjects() {
+    public void closeDriverObject() {
         if (driver != null) {
             driver.quit();
             driver = null;
         }
-    }
-
-    static void waitForElementToBeClickable(WebDriver driver, By searchCriteria, int seconds) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, seconds);
-        try {
-            webDriverWait.until(ExpectedConditions.elementToBeClickable(searchCriteria));
-        } catch (StaleElementReferenceException exception) {
-            System.out.println("\n element is clickable");
-        }
-    }
-
-    static void waitForElementToBeVisible(WebDriver driver, By searchCriteria, int seconds) {
-        WebDriverWait wait = new WebDriverWait(driver, seconds);
-        wait.until(ExpectedConditions.presenceOfElementLocated(searchCriteria));
     }
 }
 
