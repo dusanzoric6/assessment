@@ -24,7 +24,7 @@ public class SeleniumTest {
         WebElement flyingFromInput = driver.findElement(By.id("flight-origin-hp-flight"));
         flyingFromInput.sendKeys(Keys.CONTROL + "a");
         flyingFromInput.sendKeys("London");
-        Waits.waitForElementToBeVisible(driver, By.linkText("(LHR) Heathrow"), 5);
+        Waits.waitForElementToBeVisible(driver, By.linkText("(LHR) Heathrow"), 10);
 
 //    Select Heathrow in popup
         driver.findElement(By.linkText("(LHR) Heathrow")).sendKeys(Keys.ENTER);
@@ -33,7 +33,7 @@ public class SeleniumTest {
         WebElement flyingToInput = driver.findElement(By.id("flight-destination-hp-flight"));
         flyingToInput.sendKeys(Keys.CONTROL + "a");
         flyingToInput.sendKeys("Dublin");
-        Waits.waitForElementToBeVisible(driver, By.linkText("Dublin, Ireland\n(DUB)"), 5);
+        Waits.waitForElementToBeVisible(driver, By.linkText("Dublin, Ireland\n(DUB)"), 10);
 
 //    Select "Dublin Airport (DUB), Ireland" in popup
         driver.findElement(By.linkText("Dublin, Ireland\n(DUB)")).sendKeys(Keys.ENTER);
@@ -74,7 +74,6 @@ public class SeleniumTest {
         WebElement expadiaLegal = driver.findElement(By.xpath("//div[@class='legal' and contains(text(), '2019 Expedia, Inc. All rights reserved.')]"));
         javascriptExecutor.executeScript("arguments[0].scrollIntoView();", expadiaLegal);
         Assert.assertTrue(expadiaLegal.isDisplayed());
-
     }
 
     @AfterTest

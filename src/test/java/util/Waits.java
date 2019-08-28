@@ -20,6 +20,6 @@ public class Waits {
 
     public static void waitForElementToBeVisible(WebDriver driver, By searchCriteria, int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, seconds);
-        wait.until(ExpectedConditions.presenceOfElementLocated(searchCriteria));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchCriteria));
     }
 }

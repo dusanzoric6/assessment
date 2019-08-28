@@ -1,47 +1,37 @@
-/target/surefire-reports/bullet_point.png
-/target/surefire-reports/old/SeleniumTest/classes.html
-/target/surefire-reports/collapseall.gif
-/target/surefire-reports/SeleniumTest/Command line test.html
-/target/surefire-reports/old/SeleniumTest/Command line test.properties
-/target/surefire-reports/SeleniumTest/Command line test.xml
-/.idea/compiler.xml
-/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
-/target/test-classes/util/DriverFactory.class
-/target/test-classes/config/DriverSetup.class
-/target/test-classes/config/DriverType$1.class
-/target/test-classes/config/DriverType$2.class
-/target/test-classes/config/DriverType.class
-/target/surefire-reports/emailable-report.html
-/.idea/encodings.xml
-/target/surefire-reports/failed.png
-/target/surefire-reports/old/SeleniumTest/groups.html
-/target/surefire-reports/index.html
-/target/surefire-reports/old/SeleniumTest/index.html
-/target/surefire-reports/old/index.html
-/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
-/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
-/target/surefire-reports/jquery-1.7.1.min.js
-/target/surefire-reports/old/SeleniumTest/main.html
-/target/surefire-reports/old/SeleniumTest/methods.html
-/target/surefire-reports/old/SeleniumTest/methods-alphabetical.html
-/target/surefire-reports/old/SeleniumTest/methods-not-run.html
-/.idea/misc.xml
-/target/surefire-reports/navigator-bullet.png
-/target/surefire-reports/passed.png
-/target/surefire-reports/old/SeleniumTest/reporter-output.html
-/target/test-classes/SeleniumTest.class
-/target/surefire-reports/SeleniumTest.txt
-/target/surefire-reports/skipped.png
-/target/surefire-reports/TEST-SeleniumTest.xml
-/target/surefire-reports/junitreports/TEST-SeleniumTest.xml
-/target/surefire-reports/testng.css
-/target/surefire-reports/old/SeleniumTest/testng.xml.html
-/target/surefire-reports/SeleniumTest/testng-failed.xml
-/target/surefire-reports/testng-failed.xml
-/target/surefire-reports/testng-reports.css
-/target/surefire-reports/testng-reports.js
-/target/surefire-reports/testng-results.xml
-/target/surefire-reports/old/SeleniumTest/toc.html
-/.idea/uiDesigner.xml
-/.idea/vcs.xml
-/target/test-classes/util/Waits.class
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
