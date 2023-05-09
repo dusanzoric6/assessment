@@ -18,7 +18,7 @@
         </project.reporting.outputEncoding>
         <!-- Dependency versions -->
         <selenium.version>3.14.0</selenium.version>
-        <testNg.version>6.14.3</testNg.version>
+        <testNg.version>7.5.1</testNg.version>
 
         <browser>firefox</browser>
     </properties>
